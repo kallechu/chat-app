@@ -56,6 +56,8 @@ const ChatRoom = () => {
   const handleSendMessage = (e) => {
     e.preventDefault();
 
+    if (message.trim() === "") return;
+
     const socket = initSocket();
     socket.emit("send-message", { roomId, message, username });
 
